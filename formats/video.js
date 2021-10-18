@@ -10,9 +10,9 @@ const ATTRIBUTES = [
 class Video extends BlockEmbed {
   static create(value) {
     let node = super.create(value);
-    node.setAttribute('frameborder', '0');
-    node.setAttribute('allowfullscreen', true);
     node.setAttribute('src', this.sanitize(value));
+    node.setAttribute("preload", "metadata");
+    node.setAttribute("controls", true)
     return node;
   }
 
@@ -47,7 +47,7 @@ class Video extends BlockEmbed {
 }
 Video.blotName = 'video';
 Video.className = 'ql-video';
-Video.tagName = 'IFRAME';
+Video.tagName = 'VIDEO';
 
 
 export default Video;
